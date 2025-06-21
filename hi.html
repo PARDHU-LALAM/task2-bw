@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minimalist Shop</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4f46e5',secondary:'#9ca3af'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.search-input:focus {
+outline: none;
+}
+.category-scroll::-webkit-scrollbar {
+display: none;
+}
+.product-card:hover .add-to-cart {
+opacity: 1;
+}
+.newsletter-input:focus {
+outline: none;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="container mx-auto px-4 py-4">
+<div class="flex items-center justify-between">
+<!-- Logo -->
+<a href="#" class="font-['Pacifico'] text-2xl text-primary">logo</a>
+<!-- Search Bar -->
+<div class="relative w-1/3 mx-4">
+<input type="text" placeholder="Search products..." class="search-input w-full py-2 px-4 pr-10 border border-gray-200 rounded-button text-sm">
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+<!-- Navigation Icons -->
+<div class="flex items-center space-x-6">
+<a href="#" class="relative w-6 h-6 flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
+<i class="ri-heart-line text-xl"></i>
+</a>
+<a href="#" class="relative w-6 h-6 flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
+<i class="ri-user-line text-xl"></i>
+</a>
+<a href="#" class="relative w-6 h-6 flex items-center justify-center text-gray-700 hover:text-primary transition-colors">
+<i class="ri-shopping-cart-line text-xl"></i>
+<span class="absolute -top-2 -right-2 bg-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">3</span>
+</a>
+</div>
+</div>
+<!-- Main Menu -->
+<nav class="mt-4">
+<ul class="flex items-center justify-center space-x-8">
+<li><a href="#" class="text-sm font-medium text-gray-900 hover:text-primary transition-colors">Home</a></li>
+<li><a href="#" class="text-sm font-medium text-gray-900 hover:text-primary transition-colors">New Arrivals</a></li>
+<li><a href="#" class="text-sm font-medium text-gray-900 hover:text-primary transition-colors">Women</a></li>
+<li><a href="#" class="text-sm font-medium text-gray-900 hover:text-primary transition-colors">Men</a></li>
+<li><a href="#" class="text-sm font-medium text-gray-900 hover:text-primary transition-colors">Accessories</a></li>
+<li><a href="#" class="text-sm font-medium text-gray-900 hover:text-primary transition-colors">Sale</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full bg-white py-16">
+<div class="container mx-auto px-4 flex items-center">
+<div class="w-full md:w-1/2 pr-8">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Summer Collection 2025</h1>
+<p class="text-lg text-gray-600 mb-8">Discover our latest minimalist designs perfect for the summer season. Timeless pieces for your everyday style.</p>
+<button class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Shop Now</button>
+</div>
+<div class="hidden md:block w-1/2">
+<img src="https://images.unsplash.com/photo-1568252542512-9fe8fe9c87bb?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFzaGlvbiUyMGRyZXNzfGVufDB8fDB8fHww" alt="Summer Collection" class="w-full h-auto object-cover rounded-lg shadow-md">
+</div>
+</div>
+</section>
+<!-- Categories Section -->
+<section class="py-12 bg-gray-50">
+<div class="container mx-auto px-4">
+<h2 class="text-2xl font-semibold text-gray-900 mb-8 text-center">Shop by Category</h2>
+<div class="category-scroll flex items-center space-x-6 overflow-x-auto pb-4">
+<a href="tshirts.html" class="flex flex-col items-center min-w-[120px]">
+
+<div class="w-20 h-20 bg-white rounded-full shadow-sm flex items-center justify-center mb-3">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-t-shirt-line text-2xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-700">T-shirts</span>
+</a>
+<a href="#" class="flex flex-col items-center min-w-[120px]">
+<div class="w-20 h-20 bg-white rounded-full shadow-sm flex items-center justify-center mb-3">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-shirt-line text-2xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-700">Dresses</span>
+</a>
+<a href="#" class="flex flex-col items-center min-w-[120px]">
+<div class="w-20 h-20 bg-white rounded-full shadow-sm flex items-center justify-center mb-3">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-footprint-line text-2xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-700">Shoes</span>
+</a>
+<a href="#" class="flex flex-col items-center min-w-[120px]">
+<div class="w-20 h-20 bg-white rounded-full shadow-sm flex items-center justify-center mb-3">
+<div class="w-10 h-10 flex items-center justify-center text-primary">
+<i class="ri-glasses-line text-2xl"></i>
+</div>
+</div>
+<span class="text-sm font-medium text-gray-700">Accessories</span>
+</a>
+<!-- Bags Category -->
+<a href="bags.html" class="flex flex-col items-center min-w-[120px]">
+  <div class="w-20 h-20 bg-white rounded-full shadow-sm flex items-center justify-center mb-3">
+    <div class="w-10 h-10 flex items-center justify-center text-primary">
+      <i class="ri-handbag-line text-2xl"></i>
+    </div>
+  </div>
+  <span class="text-sm font-medium text-gray-700">Bags</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-2xl font-semibold text-gray-900 mb-8 text-center">Featured Products</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="product-card group relative bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="relative">
+<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NDQ8NDQ0NDQ0NDw0NDQ0NDQ8NDQ0NFREWFhURFRMYHSggGBolGxUVIjEhJikrLjA6FyAzODMtNygtLisBCgoKDQ0OFQ8PFTcdFRkrLS0rLSstLS03Ky4tKystKy4rNy03LSswKystLS0rKysrKzc3MCsrKystKysrLS0rK//AABEIAQMAwwMBIgACEQEDEQH/xAAaAAACAwEBAAAAAAAAAAAAAAAAAQIDBAUG/8QAPBAAAgECAwQGBwYGAwEAAAAAAAECAxEEITEFIjJREjNBYXGRE3KBobGy0SNCUmKCwRRTkqLh8DRz8ST/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAQIDBP/EAB8RAQACAwACAwEAAAAAAAAAAAABAgMREiExBBNRFP/aAAwDAQACEQMRAD8A94AxFZADEADEADAAAAAjKVgIVEU1HLLozcOe7GSfmRxGMjC9+xNvwM1OtOUVKVk3naKyXdmcsmWuP26UxWv6dKi3a0mpNPVR6N14FhioTk030u3kuSNVJtrN39xinyaWnX61bBasbWACGehxIRIQAAAwAAEAAAAIAABgAAAAAAAAAADZXOokBOTMmJrJI1UsNOrpaKejldXOVtPB1aM/t1ut2g43lCp7ef5dTnkvxG5hulOp0ohS9LLpS4E7+u+z2Gpvl/4VQpVJfkXfnLy7Pb5Ep7PUlvNy9Z3XloeT6cmWereHp+2mOOa+WrDNWtfV8y+Lszh1tjw7IrutlYqj6ejwVG0vuVLzj9V7Cz8a1fU7T+is+4enTJI4mE2zFtQqr0M3kuk7wk+6X7Ox3cJQnVV4R3fxaRfgzviyzM82jy43x68x6IROpSlB2lFp+7zIndyIAABBYAABDEAgAAJgAAIVhikwAhOokFOMqkujBX0TfYr8zoYLBRu3xNfea170uwaGShhp1M+Fe/yN1HAQi726T5yzNUI20Jo1ECKiTTy6LtKL1Us0AF0KJ4CjL7ji/wArsvL/AAUy2TTfDOS9ZJ/Q2BcagYHsZdtXLup/5IvYNF8VSo/VSX7M6NwGoGGlsPBx1oKr/wB32kX+l5e46XSyssksklkkiCGNAkk1Zq6fY80Y62z1rB2/K9PM2IYmBxatKUHaSa+D9pA7rSlk1fuOdjcH0N+PBy7Yv6GdDEAxECYhsiAXAQAWAAAJmTE1HotXklzZpmyvC07t1HpHdh3z5+z/AHQex1tiYfoQa1bvd/msadnRyb5sezY2j7yez1ZNfml8WbA1mxFlRZkEUMAGUKwrErBYIjYLErDsBEYwAQxoJ5ICFCV5Mt1i+218uZRgtWaYRyl3tkVxcbQ6ErrglnHu5ozM7bpKcZQl7HyfM49Wm4txeqyZiY0KmRaJisQQsBIAJCbAjUnZXYEZRc5KEeKTt4LtZsnBRcaceGC8+8twGG9HB1ZrfmtPwx5eJGhHpTvzZusJLqYVWSXcSwqs5etL5mFLUMMt6Xi/iyh1tSpFtbUqAkhiQygAYAIAGgEAWACUUQxDsmWwM+MeQEcD2myJkwKyNUNQKoZTZn2jQ6S6S4oa98f8GmWUwq5NPzJMbHAaEasbQ6EsuGWcf3RmZzVABiAGy7ZuG9LPpy6uDyX4p/RGWbTcYuSgpOzk8lFcz0VGnGEVGOSSsixAzY6eViOz4Z+CuV4vOVjXgY6vwR0RopcTHhdZetJf3MUOIMH9715/MxIlW1KC6sUgTQxRJAAxDAQAwABDZEC2BjxzNsdDnY6W9YDRg+Bvlc0Q7GZcG9yS7n8DRh3eKAK/EmOqrxDELd8B03eIGScFUi4PXWL5SOTKNnZ5NZNd52akbO5i2nGN4yTV5LeXbfn/ALyMWgYAADKqqkU1Zjw+OnQ3budL8DecfVf7aeASMmIQHZw9ZVd6LutO9dzR08NHoq3PPuZ5HB4udCV45p8UHpL6PvPUYDHQrxvTea4qcsnH/eZ0ido1Q1Hg+FvnKT97OdtfHrDU3ONnN7sIS0c3z5rty5GrZFRzoU5tWc4Rm0tE2rgaKxn7TRWMzZRZEmQiTACSIkkAmAMEApEUORBAaI6HMxvGdOOhzMZxoC/Aatktny3XH8MnHydhYNZe05OysXJYivRm3dVqzjJ/ej02re5P29xNj0Us4tGfDy6LaeXb3InVrxpxvJ25Ltfgji4rEuo9OjHsj9STOhqx2NV7U3fnLs9hz275t3b1bEBiZ2pMBABFlcoXLQsBllQIxpuDUotxktGnZo1lVUDBiqk6krzlKVtLvQ9lsX/j0u6nTX9qPGVNT2exV/8APT9SPwNVRpraGXtNVfQxpmxfEmQgSACxFaLEQRYIJAiiMytPMsqFUdQNUdDl4rjR1I6HLxPWAa8It32nHxtDo4iclk+l0r97V/3O3g1unM2kvtp/p+VGLDJJt5ttvm8xDEZUyIxAIAAAExgBFlNQuaKagGGpqe02N/x6XqQ+B4upqex2NdUYL8kPlRqqNNfQxrU2YnQxReZsaYEmRiMBosRXEsAiwQmNARqFMdS2oVR1A1w0OZiusR04aHNxXGgjXgnunO2l10v0/KjoYNbpztp9dLwj8qM2WGRiYxMwpAAgFcYgAYAACZVULmVVAOdV1PabL6qHqQ+CPF1tT2uy+ph6sfgWosxWhijqbMVoYovM2jXEbEtAKqUSwhAmERYIGAEKhTHUtqFUNQNkdDm4rjOlHQ5uJ4xCNeCW6c3anXS8I/Kjp4XhRy9q9dLwj8qM2VluRYAzCkDAAIgAAMLiABkJkhMDm4lZns9l9VFckl7jx+MR67Zb3LFqLcVoYlqbMUYo6m0bVoJsa0IsqrYEmRpkmEJgIAIVCmGpbVKaeoG6GhzMVxs6cdDm43juIJbKHCjmbV65+EfgdKi91HO2r1r9WPwM2IYhDZFmFAgEwABAAAIYAAgAx41ZHq9naPxPK47hPV4NW9paieMZjhqasYzLS1OiNi0IskQYF9MkyNPQbAQAICuqVUtSyqVUtQN8dDn49aM6EdDJjY3j4ARoy3UZNqdZ+mJfB7qXMzbSf2rXKMV7jNiGNiY2RZhQJgJsBAIAAYhXAkBG47gZcboetorJHkcV2eKPX0Fuo1UVYtlFHiLsUVYZbxtGtlfaTkytagaoaAwjoDCogwYiCqqVQ4i2oUw1KjoLQpq6FsdDPiXYCmkry8DJtJfavwj8Ea6LszJtN/avwj8DNiGNkRsiYUAArgIAuACABAACADNivu+KPX4Z7iPHYnWPrL4nr6D3F4GqivEsjhV2jrDoLI2iyTIx1HIIakVoQMBFQmJjZECMzMuI0szyW8mBugyrEwugpzJSYGOPEkZ9qdZ+mJqit4xbSleo/CPwM2GRiYMTMKBCC4CABAMQAACYwYGKu9+PrL4nroZZdh5epSTKZYfvfmWJ0PWy17PeSXs95414ci8Ma6R7Xy95KK8PeeJjh2u1+ZYqD7W/MdD29+dl4kHWgtZwXjJHjo4WPJFqw8eS8idD1UsRD+ZT/qX1IfxNP+bS/qj9TzSox/CvIfo48l5Doeiliqa1q01+qP1Kv4qlfrqX9UfqcP0a5LyF6KPJDoegWMpfzqX9UfqWfxEOypT84/U816GPJCeHj+FDoelVSF+sp+aOZtKadV2aatFXWa0OdGhFdiLSTOxJiEIimJgIBXGIAGArgAAIYBYTQwAjYfRGCAXRGkMAAAuADGRHcBgFwuAwI3GAAIAAQAACYXEwACNwAkAAACAAGAAAxIYAAAAAAwATAYAAAAAAAAAAAIAABCAAIgAFH//Z" alt="Minimal White T-Shirt" class="w-full h-80 object-cover object-top">
+<div class="add-to-cart absolute bottom-4 left-0 right-0 opacity-0 transition-opacity duration-300 flex justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-button shadow-md font-medium text-sm hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-gray-900 font-medium mb-1">Essential White T-Shirt</h3>
+<p class="text-gray-500 text-sm mb-2">Organic Cotton</p>
+<div class="flex justify-between items-center">
+<span class="text-gray-900 font-semibold">$29.99</span>
+<div class="flex">
+<div class="w-4 h-4 rounded-full bg-gray-900 border border-gray-200 mr-1"></div>
+<div class="w-4 h-4 rounded-full bg-blue-200 border border-gray-200 mr-1"></div>
+<div class="w-4 h-4 rounded-full bg-red-200 border border-gray-200"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="product-card group relative bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=minimalist%20black%20dress%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high-quality%20fashion%20item%2C%20simple%20elegant%20clothing%2C%20studio%20lighting%2C%20no%20model%2C%20flat%20lay%2C%20commercial%20product%20image&width=400&height=500&seq=3&orientation=portrait" alt="Minimal Black Dress" class="w-full h-80 object-cover object-top">
+<div class="add-to-cart absolute bottom-4 left-0 right-0 opacity-0 transition-opacity duration-300 flex justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-button shadow-md font-medium text-sm hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-gray-900 font-medium mb-1">Minimalist Black Dress</h3>
+<p class="text-gray-500 text-sm mb-2">Sustainable Fabric</p>
+<div class="flex justify-between items-center">
+<span class="text-gray-900 font-semibold">$89.99</span>
+<div class="flex">
+<div class="w-4 h-4 rounded-full bg-gray-900 border border-gray-200 mr-1"></div>
+<div class="w-4 h-4 rounded-full bg-red-900 border border-gray-200"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="product-card group relative bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=minimalist%20beige%20linen%20shirt%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high-quality%20fashion%20item%2C%20simple%20elegant%20clothing%2C%20studio%20lighting%2C%20no%20model%2C%20flat%20lay%2C%20commercial%20product%20image&width=400&height=500&seq=4&orientation=portrait" alt="Linen Shirt" class="w-full h-80 object-cover object-top">
+<div class="add-to-cart absolute bottom-4 left-0 right-0 opacity-0 transition-opacity duration-300 flex justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-button shadow-md font-medium text-sm hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-gray-900 font-medium mb-1">Relaxed Linen Shirt</h3>
+<p class="text-gray-500 text-sm mb-2">100% Natural Linen</p>
+<div class="flex justify-between items-center">
+<span class="text-gray-900 font-semibold">$59.99</span>
+<div class="flex">
+<div class="w-4 h-4 rounded-full bg-yellow-100 border border-gray-200 mr-1"></div>
+<div class="w-4 h-4 rounded-full bg-blue-100 border border-gray-200 mr-1"></div>
+<div class="w-4 h-4 rounded-full bg-gray-200 border border-gray-200"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="product-card group relative bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=minimalist%20leather%20tote%20bag%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high-quality%20fashion%20item%2C%20simple%20elegant%20accessory%2C%20studio%20lighting%2C%20no%20model%2C%20flat%20lay%2C%20commercial%20product%20image&width=400&height=500&seq=5&orientation=portrait" alt="Leather Tote" class="w-full h-80 object-cover object-top">
+<div class="add-to-cart absolute bottom-4 left-0 right-0 opacity-0 transition-opacity duration-300 flex justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-button shadow-md font-medium text-sm hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Add to Cart</button>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-gray-900 font-medium mb-1">Classic Leather Tote</h3>
+<p class="text-gray-500 text-sm mb-2">Vegetable Tanned</p>
+<div class="flex justify-between items-center">
+<span class="text-gray-900 font-semibold">$129.99</span>
+<div class="flex">
+<div class="w-4 h-4 rounded-full bg-yellow-800 border border-gray-200 mr-1"></div>
+<div class="w-4 h-4 rounded-full bg-gray-900 border border-gray-200"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<button class="bg-white border border-gray-300 text-gray-900 px-8 py-3 rounded-button font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">View All Products</button>
+</div>
+</div>
+</section>
+<!-- New Arrivals -->
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<h2 class="text-2xl font-semibold text-gray-900 mb-8 text-center">New Arrivals</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="product-card group relative bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=minimalist%20white%20sneakers%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high-quality%20fashion%20item%2C%20simple%20elegant%20footwear%2C%20studio%20lighting%2C%20no%20model%2C%20flat%20lay%2C%20commercial%20product%20image&width=400&height=500&seq=6&orientation=portrait" alt="White Sneakers" class="w-full h-80 object-cover object-top">
+<div class="add-to-cart absolute bottom-4 left-0 right-0 opacity-0 transition-opacity duration-300 flex justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-button shadow-md font-medium text-sm hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Add to Cart</button>
+</div>
+<div class="absolute top-3 left-3 bg-primary text-white text-xs px-2 py-1 rounded">New</div>
+</div>
+<div class="p-4">
+<h3 class="text-gray-900 font-medium mb-1">Minimal White Sneakers</h3>
+<p class="text-gray-500 text-sm mb-2">Recycled Materials</p>
+<div class="flex justify-between items-center">
+<span class="text-gray-900 font-semibold">$79.99</span>
+<div class="flex">
+<div class="w-4 h-4 rounded-full bg-white border border-gray-200 mr-1"></div>
+<div class="w-4 h-4 rounded-full bg-gray-200 border border-gray-200"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="product-card group relative bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=minimalist%20silk%20scarf%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high-quality%20fashion%20item%2C%20simple%20elegant%20accessory%2C%20studio%20lighting%2C%20no%20model%2C%20flat%20lay%2C%20commercial%20product%20image&width=400&height=500&seq=7&orientation=portrait" alt="Silk Scarf" class="w-full h-80 object-cover object-top">
+<div class="add-to-cart absolute bottom-4 left-0 right-0 opacity-0 transition-opacity duration-300 flex justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-button shadow-md font-medium text-sm hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Add to Cart</button>
+</div>
+<div class="absolute top-3 left-3 bg-primary text-white text-xs px-2 py-1 rounded">New</div>
+</div>
+<div class="p-4">
+<h3 class="text-gray-900 font-medium mb-1">Pure Silk Scarf</h3>
+<p class="text-gray-500 text-sm mb-2">Hand Finished</p>
+<div class="flex justify-between items-center">
+<span class="text-gray-900 font-semibold">$49.99</span>
+<div class="flex">
+<div class="w-4 h-4 rounded-full bg-blue-200 border border-gray-200 mr-1"></div>
+<div class="w-4 h-4 rounded-full bg-red-200 border border-gray-200 mr-1"></div>
+<div class="w-4 h-4 rounded-full bg-green-200 border border-gray-200"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="product-card group relative bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=minimalist%20denim%20jeans%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high-quality%20fashion%20item%2C%20simple%20elegant%20clothing%2C%20studio%20lighting%2C%20no%20model%2C%20flat%20lay%2C%20commercial%20product%20image&width=400&height=500&seq=8&orientation=portrait" alt="Denim Jeans" class="w-full h-80 object-cover object-top">
+<div class="add-to-cart absolute bottom-4 left-0 right-0 opacity-0 transition-opacity duration-300 flex justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-button shadow-md font-medium text-sm hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Add to Cart</button>
+</div>
+<div class="absolute top-3 left-3 bg-primary text-white text-xs px-2 py-1 rounded">New</div>
+</div>
+<div class="p-4">
+<h3 class="text-gray-900 font-medium mb-1">Straight Leg Jeans</h3>
+<p class="text-gray-500 text-sm mb-2">Organic Denim</p>
+<div class="flex justify-between items-center">
+<span class="text-gray-900 font-semibold">$69.99</span>
+<div class="flex">
+<div class="w-4 h-4 rounded-full bg-blue-900 border border-gray-200 mr-1"></div>
+<div class="w-4 h-4 rounded-full bg-blue-700 border border-gray-200"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="product-card group relative bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=minimalist%20straw%20hat%20on%20clean%20white%20background%2C%20professional%20product%20photography%2C%20high-quality%20fashion%20item%2C%20simple%20elegant%20accessory%2C%20studio%20lighting%2C%20no%20model%2C%20flat%20lay%2C%20commercial%20product%20image&width=400&height=500&seq=9&orientation=portrait" alt="Straw Hat" class="w-full h-80 object-cover object-top">
+<div class="add-to-cart absolute bottom-4 left-0 right-0 opacity-0 transition-opacity duration-300 flex justify-center">
+<button class="bg-white text-primary px-4 py-2 rounded-button shadow-md font-medium text-sm hover:bg-primary hover:text-white transition-colors whitespace-nowrap">Add to Cart</button>
+</div>
+<div class="absolute top-3 left-3 bg-primary text-white text-xs px-2 py-1 rounded">New</div>
+</div>
+<div class="p-4">
+<h3 class="text-gray-900 font-medium mb-1">Wide Brim Straw Hat</h3>
+<p class="text-gray-500 text-sm mb-2">Handwoven</p>
+<div class="flex justify-between items-center">
+<span class="text-gray-900 font-semibold">$39.99</span>
+<div class="flex">
+<div class="w-4 h-4 rounded-full bg-yellow-100 border border-gray-200"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4 max-w-2xl text-center">
+<h2 class="text-2xl font-semibold text-gray-900 mb-3">Subscribe to Our Newsletter</h2>
+<p class="text-gray-600 mb-8">Stay updated with our latest collections and exclusive offers.</p>
+<div class="flex">
+<input type="email" placeholder="Your email address" class="newsletter-input flex-grow border border-gray-200 rounded-l-button py-3 px-4 text-gray-700 text-sm border-r-0">
+<button class="bg-primary text-white px-6 py-3 rounded-r-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">Subscribe</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-50 pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="hi.html" class="font-['Pacifico'] text-2xl text-primary">logo</a>
+<p class="text-gray-600 text-sm mb-6">Minimalist fashion essentials crafted with quality and sustainability in mind.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-sm text-gray-600 hover:text-primary transition-colors">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-sm text-gray-600 hover:text-primary transition-colors">
+<i class="ri-facebook-line"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-sm text-gray-600 hover:text-primary transition-colors">
+<i class="ri-twitter-x-line"></i>
+</a>
+<a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-sm text-gray-600 hover:text-primary transition-colors">
+<i class="ri-pinterest-line"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-gray-900 font-semibold mb-4">Shop</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">New Arrivals</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Women</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Men</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Accessories</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Sale</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-gray-900 font-semibold mb-4">Help</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Customer Service</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">My Account</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Find a Store</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Shipping & Returns</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">FAQs</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-gray-900 font-semibold mb-4">About</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Our Story</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Sustainability</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Careers</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Press</a></li>
+<li><a href="#" class="text-gray-600 text-sm hover:text-primary transition-colors">Contact Us</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-200 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 logo. All rights reserved.</p>
+<div class="flex items-center space-x-4">
+<div class="w-8 h-5 flex items-center justify-center">
+<i class="ri-visa-line text-gray-600"></i>
+</div>
+<div class="w-8 h-5 flex items-center justify-center">
+<i class="ri-mastercard-line text-gray-600"></i>
+</div>
+<div class="w-8 h-5 flex items-center justify-center">
+<i class="ri-paypal-line text-gray-600"></i>
+</div>
+<div class="w-8 h-5 flex items-center justify-center">
+<i class="ri-apple-fill text-gray-600"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const cartIcon = document.querySelector('.ri-shopping-cart-line');
+  const cartSidebar = document.getElementById('cartSidebar');
+  const closeCartBtn = document.getElementById('closeCart');
+  const cartItemsContainer = document.getElementById('cartItems');
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.querySelectorAll('.ri-shopping-cart-line + span').forEach(el => {
+      el.textContent = cart.length;
+    });
+  }
+
+  function renderCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cartItemsContainer.innerHTML = '';
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = '<p class="text-gray-500 text-sm">Your cart is empty.</p>';
+      return;
+    }
+
+    cart.forEach((item, index) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'border rounded-lg p-3 flex justify-between items-center';
+      itemDiv.innerHTML = `
+        <div>
+          <h3 class="text-sm font-medium text-gray-900">${item.name}</h3>
+          <p class="text-sm text-gray-500">${item.price}</p>
+        </div>
+        <button class="text-red-500 hover:text-red-700" onclick="removeFromCart(${index})">
+          <i class="ri-delete-bin-line"></i>
+        </button>
+      `;
+      cartItemsContainer.appendChild(itemDiv);
+    });
+  }
+
+  window.removeFromCart = function(index) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+    updateCartCount();
+  };
+
+  cartIcon.addEventListener('click', () => {
+    renderCart();
+    cartSidebar.classList.remove('translate-x-full');
+  });
+
+  closeCartBtn.addEventListener('click', () => {
+    cartSidebar.classList.add('translate-x-full');
+  });
+
+  updateCartCount();
+});
+</script>
+
+<!-- Cart Sidebar -->
+<div id="cartSidebar" class="fixed top-0 right-0 w-80 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto">
+  <div class="p-4 border-b flex justify-between items-center">
+    <h2 class="text-lg font-semibold text-gray-900">Your Cart</h2>
+    <button id="closeCart" class="text-gray-500 hover:text-primary text-xl">
+      <i class="ri-close-line"></i>
+    </button>
+  </div>
+  <div id="cartItems" class="p-4 space-y-4">
+    <!-- JS will render items here -->
+  </div>
+</div>
+
+</body>
+</html>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Update Cart Icon Badge
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCountElement = document.querySelectorAll('.ri-shopping-cart-line + span');
+    cartCountElement.forEach(el => {
+      el.textContent = cart.length;
+    });
+  }
+
+  // Add to Cart Buttons
+  const addToCartButtons = document.querySelectorAll('.add-to-cart button');
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      const productCard = this.closest('.product-card');
+      const productName = productCard.querySelector('h3')?.textContent || 'Unknown';
+      const productPrice = productCard.querySelector('span.text-gray-900')?.textContent || '$0';
+
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name: productName, price: productPrice });
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert(`Added "${productName}" to your cart!`);
+      updateCartCount();
+    });
+  });
+
+  // Initial update on load
+  updateCartCount();
+});
+</script>
